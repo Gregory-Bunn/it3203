@@ -1,0 +1,80 @@
+/*Global Styles*/
+:root {
+    --bg-color: #f8f9fa;
+    --text-color: #212529;
+    --primary-color: #0056b3;
+    --border-color: #dee2e6;
+    --card-bg: #ffffff;
+}
+
+body {
+    font-family: "Segoe UI";
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--bg-color);
+    margin: 0;
+    padding: 0;
+}
+
+/*Layout*/
+header, main, footer {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+main {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    margin-top: 20px;
+    margin-bottom: 40px;
+}
+
+/*Navigation*/
+nav {
+    padding: 10px 0;
+    margin-top: 15px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+nav a {
+    color: var(--text-color);
+    text-decoration: none;
+    font-weight: 500;
+}
+
+nav a:hover {
+    color: var(--primary-color);
+    text-decoration: underline;
+}
+
+/* Typography */
+h1, h2, h3 {
+    color: #111111;
+}
+
+h1 { margin-bottom: 5px; }
+
+/*Tables*/
+table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+}
+
+th, td {
+    padding: 12px;
+    text-align: left;
+}
+
+th {
+    background-color: #f1f3f5;
+    font-weight: 600;
+}
+
+/*Footer*/
+footer {
+    text-align: center;
+}
