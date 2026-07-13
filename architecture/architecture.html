@@ -1,68 +1,137 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <title>Web Browser Architecture</title>
-    <link rel="stylesheet" href="../style.css" />
-  </head>
-  <body>
-    <header>
-      <h1>Web Browsers</h1>
-      <p>History, Architecture, and Future Directions</p>
-      <nav>
-        <a href="../homepage/homepage.html">Home</a>
-        <a href="../history/history.html">History</a>
-        <a href="../architecture/architecture.html">Architecture</a>
-        <a href="../concepts/concepts.html">Key Concepts</a>
-        <a href="../about/about.html">About</a>
-        <a href="../references/references.html">References</a>
-      </nav>
-    </header>
 
-    <main>
-      <h2>Browser Architecture</h2>
-      <p>
-        Modern web browsers share many underlying technologies. Below are some
-        of these technologies, their primary functions, and examples of each.
-      </p>
-      <table>
-        <thead>
-          <tr>
-            <th>Engine Component</th>
-            <th>Primary Function</th>
-            <th>Key Examples</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td><strong>Rendering Engine</strong></td>
-            <td>Interprets HTML/CSS to build the DOM and calculate layouts.</td>
-            <td>Blink, Gecko, WebKit</td>
-          </tr>
-          <tr>
-            <td><strong>JavaScript Engine</strong></td>
-            <td>Uses Just-In-Time (JIT) compilation to run real-time code.</td>
-            <td>V8, SpiderMonkey</td>
-          </tr>
-        </tbody>
-      </table>
+<head>
+  <meta charset="UTF-8" />
+  <title>Web Browser Architecture</title>
+  <link rel="stylesheet" href="../style.css" />
+</head>
 
-      <h3>Security & Multi-Process Stability</h3>
-      <p>
-        Rather than running every tab within a single process, browsers isolate
-        individual tabs and extensions. If one webpage crashes, it won't crash
-        the entire application. Browsers also implement sandboxing, which
-        restricts the permissions available to webpages and prevents them from
-        directly accessing a user's files or system resources.
-      </p>
-    </main>
+<body>
+  <header>
+    <h1>Web Browsers</h1>
+    <p>History, Architecture, and Future Directions</p>
+    <nav>
+      <a href="../homepage/homepage.html">Home</a>
+      <a href="../history/history.html">History</a>
+      <a href="../architecture/architecture.html">Architecture</a>
+      <a href="../concepts/concepts.html">Key Concepts</a>
+      <a href="../quiz/quiz.html">Quiz</a>
+      <a href="../about/about.html">About</a>
+      <a href="../references/references.html">References</a>
+    </nav>
+  </header>
 
-    <footer>
+  <main>
+    <h2>Browser Architecture</h2>
+    <p>
+      Modern web browsers share many underlying technologies. Below are some
+      of these technologies, their primary functions, and examples of each.
+    </p>
+    <table>
+      <thead>
+        <tr>
+          <th>Engine Component</th>
+          <th>Primary Function</th>
+          <th>Key Examples</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Rendering Engine</strong></td>
+          <td>Interprets HTML/CSS to build the DOM and calculate layouts.</td>
+          <td>Blink, Gecko, WebKit</td>
+        </tr>
+        <tr>
+          <td><strong>JavaScript Engine</strong></td>
+          <td>Uses Just-In-Time (JIT) compilation to run real-time code.</td>
+          <td>V8, SpiderMonkey</td>
+        </tr>
+        <tr>
+          <td><strong>Networking</strong></td>
+          <td>Handles internet communication protocols, manages network traffic, handles cache
+            mechanics, and resolves DNS lookups.</td>
+          <td>HTTP/2, HTTP/3, TLS/SSL Handshakes</td>
+        </tr>
+        <tr>
+          <td><strong>Data Storage</strong></td>
+          <td>A localized database layer enabling web applications to securely persist user data, settings, assets, and
+            offline state information directly inside the device hardware.</td>
+          <td>localStorage, IndexedDB, browser cookies</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <h3>Multi-Process Architecture & System Stability</h3>
+    <p>
+      Early web browser architecture operated on a single-process model, meaning that if a single web script encountered
+      an infinite loop or crashed, the entire browser application would freeze and close immediately.
+    </p>
+    <p>
+      To solve this, modern browsers employ a multi-process architecture. By running the core
+      browser UI, individual tabs, and rendering sandboxes in completely isolated operating system processes:
+    </p>
+    <ul>
+      <li><strong>Fault Isolation:</strong> If a webpage crashes in one tab, its
+        failure is isolated. The operating system simply terminates that specific sub-process, leaving the rest of your
+        tabs intact.</li>
+      <li><strong>Hardware Optimization:</strong> This design allows the browser to split computational loads
+        across multiple CPU cores and independent processing threads, accelerating modern app execution.</li>
+    </ul>
+
+    <h3>Core Web Security Mechanisms</h3>
+    <p>
+      Because web browsers constantly execute untrusted code downloaded directly from external servers (such as
+      JavaScript), they enforce
+      defense systems to safeguard user resources:
+    </p>
+
+    <div>
+      <p><strong>1. Sandboxing:</strong> Browsers force rendering tasks to run inside a restricted "sandbox." This
+        environment revokes write/read access permissions to the user's host operating system files preventing malicious
+        scripts from executing
+        malware installations.</p>
+
+      <p><strong>2. Automatic Updates:</strong> As new browser vulnerabilities are discovered often, developers of
+        browsers must push updates to ensure the integrity of the browser and user data. These updates are pushed and
+        installed automatically to the user's computer, ensuring the browser stays up to date and secure.</p>
+
+      <p><strong>3. Secure Communication:</strong> This automatically intercepts connections to
+        ensure secure SSL/HTTPS certificates, verifying that target web servers match their public identities and
+        blocking malicious data injections and to secure sensitive data is transferred securely via encryption.</p>
+    </div>
+  </main>
+
+  <footer>
+    <div class="footer-container">
+      <div class="footer-col">
+        <h4>Web Browsers - History, Architecture, and Future Directions</h4>
+        <p>A brief overview of web browser history, architecture, and key concepts.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Quick Navigation</h4>
+        <ul>
+          <li><a href="../homepage/homepage.html">Home</a></li>
+          <li><a href="../history/history.html">History</a></li>
+          <li><a href="../architecture/architecture.html">Architecture</a></li>
+          <li><a href="../concepts/concepts.html">Key Concepts</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4><br></h4>
+        <ul>
+          <li><a href="../quiz/quiz.html">Quiz</a></li>
+          <li><a href="../about/about.html">About</a></li>
+          <li><a href="../references/references.html">References</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
       <p>
-        <a href="https://ksuweb.github.io/IT3203"
-          >https://ksuweb.github.io/IT3203</a
-        >
+        <a href="https://ksuweb.github.io/IT3203">https://ksuweb.github.io/IT3203</a>
       </p>
-    </footer>
-  </body>
+    </div>
+  </footer>
+</body>
+
 </html>

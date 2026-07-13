@@ -1,0 +1,254 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Browser Technology Quiz</title>
+    <link rel="stylesheet" href="../style.css">
+    <style>
+        .quiz-question {
+            margin-bottom: 25px;
+            padding: 20px;
+            background-color: #efefef;
+            border-radius: 0 6px 6px 0;
+        }
+
+        .quiz-question h3 {
+            margin-top: 0;
+        }
+
+        .options-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .text-input {
+            width: 100%;
+            max-width: 90%;
+            padding: 8px 12px;
+            border-radius: 4px;
+        }
+
+        .quiz-btn {
+            background-color: #0d6efd;
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            font-weight: bold;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        #quiz-result {
+            margin-top: 25px;
+            padding: 20px;
+            border-radius: 6px;
+            display: none;
+            font-weight: 500;
+        }
+
+        .success-box {
+            background-color: #d1e7dd;
+            color: #0f5132;
+            border: 1px solid #badbcc;
+        }
+
+        .fail-box {
+            background-color: #f8d7da;
+            color: #842029;
+            border: 1px solid #f5c2c7;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Web Browsers</h1>
+        <p>History, Architecture, and Future Directions</p>
+        <nav>
+            <a href="../homepage/homepage.html">Home</a>
+            <a href="../history/history.html">History</a>
+            <a href="../architecture/architecture.html">Architecture</a>
+            <a href="../concepts/concepts.html">Key Concepts</a>
+            <a href="../quiz/quiz.html">Quiz</a>
+            <a href="../about/about.html">About</a>
+            <a href="../references/references.html">References</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2>Test Your Browser Knowledge</h2>
+        <form id="browser-quiz">
+
+            <div class="quiz-question">
+                <h3>1. What was the name of the very first web browser developed by Tim Berners-Lee in
+                    1990? (Case insensitive, one word)</h3>
+                <input type="text" id="q1" class="text-input" placeholder="Type answer here...">
+            </div>
+
+            <div class="quiz-question">
+                <h3>2. Which browser was the first to display images inline directly alongside document text, serving as
+                    an explosive catalyst for internet growth in 1993?</h3>
+                <ul class="options-list">
+                    <li><input type="radio" id="q2-a" name="q2" value="Netscape"><label for="q2-a">Netscape
+                            Navigator</label></li>
+                    <li><input type="radio" id="q2-b" name="q2" value="Mosaic"><label for="q2-b">Mosaic</label></li>
+                    <li><input type="radio" id="q2-c" name="q2" value="Explorer"><label for="q2-c">Internet
+                            Explorer</label></li>
+                    <li><input type="radio" id="q2-d" name="q2" value="Firefox"><label for="q2-d">Mozilla
+                            Firefox</label></li>
+                </ul>
+            </div>
+
+            <div class="quiz-question">
+                <h3>3. What rendering engine is currently utilized by Google Chrome and Microsoft Edge to build the DOM
+                    tree and calculate layouts?</h3>
+                <ul class="options-list">
+                    <li><input type="radio" id="q3-a" name="q3" value="Gecko"><label for="q3-a">Gecko</label></li>
+                    <li><input type="radio" id="q3-b" name="q3" value="WebKit"><label for="q3-b">WebKit</label></li>
+                    <li><input type="radio" id="q3-c" name="q3" value="Blink"><label for="q3-c">Blink</label></li>
+                    <li><input type="radio" id="q3-d" name="q3" value="V8"><label for="q3-d">V8</label></li>
+                </ul>
+            </div>
+
+            <div class="quiz-question">
+                <h3>4. What runtime code compilation technique do modern JavaScript engines use to rapidly translate
+                    scripts into machine code execution?</h3>
+                <ul class="options-list">
+                    <li><input type="radio" id="q4-a" name="q4" value="DOM"><label for="q4-a">DOM</label></li>
+                    <li><input type="radio" id="q4-b" name="q4" value="JIT"><label for="q4-b">Just-In-Time (JIT)
+                            Compilation</label></li>
+                    <li><input type="radio" id="q4-c" name="q4" value="Sandboxing"><label for="q4-c">Sandboxing</label>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="quiz-question">
+                <h3>5. Select ALL architectural design benefits gained from utilizing a modern Multi-Process
+                    Architecture</h3>
+                <ul class="options-list">
+                    <li><input type="checkbox" id="q5-a" name="q5" value="crash"><label for="q5-a">Isolates tab
+                            crashes so they do not take down the entire browser application</label></li>
+                    <li><input type="checkbox" id="q5-b" name="q5" value="bloat"><label for="q5-b">Eliminates
+                            bloat and keeps document files reasonably small</label></li>
+                    <li><input type="checkbox" id="q5-c" name="q5" value="cpu"><label for="q5-c">Takes
+                            advantage of newer, multi-threaded processors</label></li>
+                    <li><input type="checkbox" id="q5-d" name="q5" value="cookie"><label for="q5-d">Guarantees
+                            elimination of tracking cookies</label></li>
+                </ul>
+            </div>
+
+            <button type="submit" class="quiz-btn">Submit Quiz Answers</button>
+            <button type="reset" id="reset-btn" class="quiz-btn" style="background-color: #6c757d;">Reset</button>
+        </form>
+
+        <div id="quiz-result"></div>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-col">
+                <h4>Web Browsers - History, Architecture, and Future Directions</h4>
+                <p>A brief overview of web browser history, architecture, and key concepts.</p>
+            </div>
+            <div class="footer-col">
+                <h4>Quick Navigation</h4>
+                <ul>
+                    <li><a href="../homepage/homepage.html">Home</a></li>
+                    <li><a href="../history/history.html">History</a></li>
+                    <li><a href="../architecture/architecture.html">Architecture</a></li>
+                    <li><a href="../concepts/concepts.html">Key Concepts</a></li>
+                </ul>
+            </div>
+            <div class="footer-col">
+                <h4><br></h4>
+                <ul>
+                    <li><a href="../quiz/quiz.html">Quiz</a></li>
+                    <li><a href="../about/about.html">About</a></li>
+                    <li><a href="../references/references.html">References</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>
+                <a href="https://ksuweb.github.io/IT3203">https://ksuweb.github.io/IT3203</a>
+            </p>
+        </div>
+    </footer>
+
+    <script>
+        const form = document.getElementById('browser-quiz');
+        const resultBox = document.getElementById('quiz-result');
+        const resetBtn = document.getElementById('reset-btn');
+
+        form.addEventListener('submit', function (e) {
+            e.preventDefault();
+
+            let score = 0;
+            const totalQuestions = 5;
+            let reviewHTML = "";
+
+            // Grade answers
+            const q1Answer = document.getElementById('q1').value.trim().toLowerCase().replace(/\s+/g, '');
+            if (q1Answer == 'worldwideweb') {
+                score++;
+            } else {
+                reviewHTML += `<li><strong>Question 1:</strong> Your answer was incorrect. The correct answer is WorldWideWeb.</li>`;
+            }
+
+            const q2Selected = document.querySelector('input[name="q2"]:checked');
+            if (q2Selected && q2Selected.value == 'Mosaic') {
+                score++;
+            } else {
+                reviewHTML += `<li><strong>Question 2:</strong> Incorrect. The correct answer is <strong>Mosaic</strong>.</li>`;
+            }
+
+            const q3Selected = document.querySelector('input[name="q3"]:checked');
+            if (q3Selected && q3Selected.value == 'Blink') {
+                score++;
+            } else {
+                reviewHTML += `<li><strong>Question 3:</strong> Incorrect. The correct answer is <strong>Blink</strong>.</li>`;
+            }
+
+            const q4Selected = document.querySelector('input[name="q4"]:checked');
+            if (q4Selected && q4Selected.value == 'JIT') {
+                score++;
+            } else {
+                reviewHTML += `<li><strong>Question 4:</strong> Incorrect. The correct technique is <strong>Just-In-Time (JIT) Compilation</strong>..</li>`;
+            }
+
+            const q5a = document.getElementById('q5-a').checked;
+            const q5b = document.getElementById('q5-b').checked;
+            const q5c = document.getElementById('q5-c').checked;
+            const q5d = document.getElementById('q5-d').checked;
+
+            if (q5a && !q5b && q5c && !q5d) {
+                score++;
+            } else {
+                reviewHTML += `<li><strong>Question 5:</strong> Incorrect. Multi-process architectures are designed for <strong>tab crash isolation</strong> and maximizing <strong>multi-core CPU usage</strong>.</li>`;
+            }
+
+            resultBox.style.display = 'block';
+            let summaryHTML = `<h3>Your Score: ${score}/${totalQuestions}</h3>`;
+
+            if (score === totalQuestions) {
+                resultBox.className = "success-box";
+                summaryHTML += `<p>Perfect score!</p>`;
+            } else {
+                resultBox.className = "fail-box";
+                summaryHTML += `<p>Please review the incorrect items below:</p><ul style="padding-left: 20px; text-align: left;">${reviewHTML}</ul>`;
+            }
+
+            resultBox.innerHTML = summaryHTML;
+        });
+
+        resetBtn.addEventListener('click', function () {
+            form.reset(); // Clear all user fields automatically
+            resultBox.style.display = 'none';
+            resultBox.innerHTML = '';
+        });
+    </script>
+</body>
+
+</html>
